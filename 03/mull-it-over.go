@@ -11,7 +11,6 @@ func checkDoDont(batch []byte) bool {
 	if string(batch[:4]) == "do()" {
 		return true
 	} else if string(batch[:7]) == "don't()" {
-		fmt.Println("dont: ", string(batch[:7]))
 		return false
 	}
 
@@ -23,14 +22,11 @@ func checkMul(batch []byte) bool {
 	// Check if the string is proper "mul" string
 	// return the boolead based the check
 
-	if string(batch[0]) == "m" && string(batch[1]) == "u" && string(batch[2]) == "l" {
-		// fmt.Println("Found mul")
-		return true
-	} else {
-		// fmt.Println("Not found mul", string(batch[0]), string(batch[1]), string(batch[2]))
+	if string(batch[:3]) != "mul" {
 		return false
 	}
 
+	return true
 }
 
 func checkPar(batch []byte) (int, int) {
@@ -124,7 +120,6 @@ func main() {
 				i += parLenght
 				totalSum += result
 			}
-
 		}
 	}
 

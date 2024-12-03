@@ -7,6 +7,17 @@ import (
 	"strconv"
 )
 
+func checkDoDont(batch []byte) bool {
+	if string(batch[:4]) == "do()" {
+		return true
+	} else if string(batch[:7]) == "don't()" {
+		fmt.Println("dont: ", string(batch[:7]))
+		return false
+	}
+
+	return true
+}
+
 func checkMul(batch []byte) bool {
 	// This will be done only if in the main loop we find "m" char
 	// Check if the string is proper "mul" string
@@ -94,9 +105,14 @@ func main() {
 	}
 
 	totalSum := 0
+	do := true
 
 	for i, v := range data {
-		if v == 'm' {
+		if v == 'd' {
+			endIdx := i + 6
+			do = checkDoDont(data[i:endIdx])
+		}
+		if v == 'm' && do {
 			endIdx := i + 3
 			if !checkMul(data[i:endIdx]) {
 				continue

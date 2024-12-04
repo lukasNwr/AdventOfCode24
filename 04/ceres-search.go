@@ -35,6 +35,36 @@ func checkVertical(arr [][]rune, x, y int) bool {
 	return false
 }
 
+func findTheReadXMAS(arr [][]rune, x, y int) bool {
+	diagnoalFound := false
+	backDiagonalFound := false
+
+	if x <= len(arr[y])-3 && y <= len(arr)-3 {
+		diagonal := string([]rune{
+			arr[y][x],
+			arr[y+1][x+1],
+			arr[y+2][x+2],
+		})
+
+		if diagonal == "MAS" || diagonal == "SAM" {
+			diagnoalFound = true
+		}
+
+		backDiagonal := string([]rune{
+			arr[y][x+2],
+			arr[y+1][x+1],
+			arr[y+2][x],
+		})
+
+		if backDiagonal == "MAS" || backDiagonal == "SAM" {
+			backDiagonalFound = true
+		}
+
+	}
+
+	return diagnoalFound && backDiagonalFound
+}
+
 func checkDiagonal(arr [][]rune, x, y int) (bool, int) {
 	nXmasFound := 0
 	xmasFound := false
@@ -88,19 +118,24 @@ func main() {
 	totalXMAS := 0
 	for y := 0; y < len(data); y++ {
 		for x := 0; x < len(data[y]); x++ {
-			if checkHorizontal(data, x, y) {
-				totalXMAS++
-				fmt.Printf("Found XMAS at %d %d, totalCount: %d, horizontal\n", y, x, totalXMAS)
-			}
-			if checkVertical(data, x, y) {
-				totalXMAS++
-				fmt.Printf("Found XMAS at %d %d, totalCount: %d, vertical\n", y, x, totalXMAS)
-			}
+			// if checkHorizontal(data, x, y) {
+			// 	totalXMAS++
+			// 	fmt.Printf("Found XMAS at %d %d, totalCount: %d, horizontal\n", y, x, totalXMAS)
+			// }
+			// if checkVertical(data, x, y) {
+			// 	totalXMAS++
+			// 	fmt.Printf("Found XMAS at %d %d, totalCount: %d, vertical\n", y, x, totalXMAS)
+			// }
 
-			b, v := checkDiagonal(data, x, y)
-			if b {
-				totalXMAS += v
-				fmt.Printf("Found XMAS at %d %d, totalCount: %d, diagonal\n", y, x, totalXMAS)
+			// b, v := checkDiagonal(data, x, y)
+			// if b {
+			// 	totalXMAS += v
+			// 	fmt.Printf("Found XMAS at %d %d, totalCount: %d, diagonal\n", y, x, totalXMAS)
+			// }
+
+			if findTheReadXMAS(data, x, y) {
+				// fmt.Printf("Found X-MAS at %d %d, totalCount: %d \n", y, x, totalXMAS)
+				totalXMAS++
 			}
 
 		}

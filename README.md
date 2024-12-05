@@ -38,4 +38,4 @@ Today, the task was in my opinion conceptually very easy. However, the implement
 - More work with arrays/slices (which is greate because I feel I am getting more confortable with them)
 - More work with files
 - I got introduced into the runes - way to work with individual characters in strings (since strings in go are immutable and you access only idx byte, not necessarily character)
-- I have learned that when I have problem I have to debug on smaller, simpler input and CAREFULLY and SLOWLY go through the steps, ONE BY ONE.
+- I got reminded that when I have problem I have to debug it on smaller, simpler input and CAREFULLY and SLOWLY go through the steps, ONE BY ONE. With patience and focus.

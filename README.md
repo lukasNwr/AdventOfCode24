@@ -39,3 +39,7 @@ Today, the task was in my opinion conceptually very easy. However, the implement
 - More work with files
 - I got introduced into the runes - way to work with individual characters in strings (since strings in go are immutable and you access only idx byte, not necessarily character)
 - I got reminded that when I have problem I have to debug it on smaller, simpler input and CAREFULLY and SLOWLY go through the steps, ONE BY ONE. With patience and focus.
+
+## Day 5
+
+This one took me quite long. I think I was just messing up on small things but then I go nervous and demotivated and it hust became worse. Finally made it (mainly the 2dn part, the first one was pretty easy). The solution is most likely quite shit. Appearently this was classic dependency (topological graph) problem which I did bot realize. I could redo it but I am intentionally leaving all of the code here messy.

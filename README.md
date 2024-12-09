@@ -43,3 +43,15 @@ Today, the task was in my opinion conceptually very easy. However, the implement
 ## Day 5
 
 This one took me quite long. I think I was just messing up on small things but then I go nervous and demotivated and it hust became worse. Finally made it (mainly the 2dn part, the first one was pretty easy). The solution is most likely quite shit. Appearently this was classic dependency (topological graph) problem which I did bot realize. I could redo it but I am intentionally leaving all of the code here messy.
+
+## Day 6
+
+Part 1 was manageable. It was loads of fun and I know what I want to do from the start. Programming it took me longer that I expected and the initial version was so ugly and cumbersome that I had to refactor it so that it was easier to debug... However, I did the refactor with the AI and it did really nice job. It created the structs and objects, which was something new to me and I think I will use it quite a lot from now on. The logic was exactly the same though.
+
+The second part was a lot trickier for me. I did couple of attempts to find possible loops with the idea that they should comply to certain geometrical criteria (top right is one row below top left...) however I could not program that. At least not that fast. Then I was starting to be desperate because I needed to get this done so I checked the subreddit and found out how possible solution can work. When I saw that I thought like a complete idiot - because this is so simple. Put wall to all previously visited positions and check for loops. Again it sounded so simple, but when I tried to code it, I was strugling. I could not get it done, even when I would swear that the logic was right, there were some errors that made it not work. I really wanted to have it done today so that I can move on so I used cursor to help me fix the mistakes
+
+### What I have learned?
+
+- Structs, Maps
+- Shallow vs Deep copy
+- Colouring and replacing terminal output (I think)

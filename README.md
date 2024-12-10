@@ -55,3 +55,12 @@ The second part was a lot trickier for me. I did couple of attempts to find poss
 - Structs, Maps
 - Shallow vs Deep copy
 - Colouring and replacing terminal output (I think)
+
+## Day 7
+
+I didn't really know how to approach the problem, other than brute force so I checked out how this could be solved. AI recomended backtrack, which was basically brute force and some other options like dynamic programming. I had no idea what it even is and the wikipedia page looked too complicated. I also checked out binary expression trees, but that didn't quite work out and I didn't want to spend the whole day with it. I opted for the backtracking option and it's surprisingly fast. Although I have found out that the tree solution was probably not working because I had made mistakes converting the strings into numbers :(.
+
+### What I have learned?
+
+- Be careful with the conversions string -> int and vice versa
+- Backtracking, Binary trees (kinda, just a little intro, because I didn't go for it further)

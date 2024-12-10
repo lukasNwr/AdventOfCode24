@@ -8,16 +8,26 @@ import (
 	"strings"
 )
 
+func orOp(a, b int) int {
+	aStr := strconv.Itoa(a)
+	bStr := strconv.Itoa(b)
+
+	combined := aStr + bStr
+
+	num, _ := strconv.Atoi(combined)
+	return num
+}
+
 func findCombination(numbers []int, testValue int) bool {
-	var backtrack func(index, currentValue int, currentOp rune) bool
-	backtrack = func(index, currentValue int, currentOp rune) bool {
+	var backtrack func(index, currentValue int, currentOp string) bool
+	backtrack = func(index, currentValue int, currentOp string) bool {
 
 		// Check if the value is what am I looking for when I reach the end of the array
 		if index == len(numbers) {
 			return currentValue == testValue
 		}
 
-		operators := []rune{'+', '*'}
+		operators := []string{"+", "*", "||"}
 
 		for _, op := range operators {
 			// Initial number, just do the backtrack from next number
@@ -28,10 +38,12 @@ func findCombination(numbers []int, testValue int) bool {
 			} else {
 				newValue := 0
 				switch currentOp {
-				case '+':
+				case "+":
 					newValue = currentValue + numbers[index]
-				case '*':
+				case "*":
 					newValue = currentValue * numbers[index]
+				case "||":
+					newValue = orOp(currentValue, numbers[index])
 				}
 
 				if backtrack(index+1, newValue, op) {
@@ -43,7 +55,7 @@ func findCombination(numbers []int, testValue int) bool {
 		return false
 	}
 
-	return backtrack(0, 0, '+') || backtrack(0, 0, '*')
+	return backtrack(0, 0, "+") || backtrack(0, 0, "*") || backtrack(0, 0, "||")
 }
 
 func main() {
